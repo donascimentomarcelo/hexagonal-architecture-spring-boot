@@ -1,1 +1,1 @@
-rootProject.name = "mba-hexagonal-arch"
+rootProject.name = "hexagonal-arch"

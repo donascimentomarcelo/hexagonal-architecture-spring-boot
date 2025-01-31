@@ -1,0 +1,62 @@
+
+# Hexagonal Architecture
+
+“Allow an application to be equally be driven by users, programs, automated, tests, batch scripts, and to be developed and tested in isolation from its eventual run-time devices and database” (Alistair Cockburn, 2005).
+
+
+### Vantagens da Arquitetura Hexagonal:
+- Independência de Tecnologias: Permite trocar frameworks e ferramentas sem impactar a lógica central.
+- Facilidade de Testes: Facilita a criação de testes unitários e de integração devido à separação clara entre 
+  domínios e dependências externas.
+- Manutenibilidade: Código mais organizado e modular, reduzindo o acoplamento.
+- Flexibilidade: Adaptável a mudanças de requisitos, já que os adaptadores externos podem ser facilmente substituídos.
+- Escalabilidade: Suporte a múltiplos tipos de interface (APIs, CLI, etc.) sem modificar o núcleo da aplicação.
+
+### Desvantagens da Arquitetura Hexagonal:
+- Complexidade Inicial: Exige mais esforço para entender e implementar corretamente, especialmente para equipes 
+inexperientes.
+- Sobrecarga de Abstrações: Pode introduzir camadas desnecessárias, tornando o desenvolvimento mais lento em projetos 
+  pequenos.
+- Maior Tempo de Desenvolvimento: Requer mais planejamento e design para separar responsabilidades adequadamente.
+- Overengineering: Não é ideal para aplicações simples ou com ciclo de vida curto.
+
+### Quando usar?
+- Projetos de médio a grande porte, onde a manutenção, escalabilidade e testabilidade são cruciais.
+- Sistemas que precisam ser resilientes a mudanças de tecnologias externas (ex.: mudança de banco de dados ou API 
+  externa).
+- Projetos onde o foco no domínio e na lógica de negócio é primordial.
+- Cenários onde a testabilidade é um requisito essencial.
+
+### Quando evitar?
+- Projetos pequenos ou simples, onde o overhead inicial não compensa os benefícios.
+- Times com pouca experiência em arquitetura hexagonal ou sem tempo para treinamento adequado.
+
+## Projeto Event App
+
+##### Modelo
+ - Customer: Representação do cliente no sistema 
+ - Partner: Representa quem vai criar um evento (uma casa de show, por exemplo)
+ - Event: Representa os eventos
+ - Ticket: Representa a lista de tickets que será disponibilizado para cada evento
+
+### Diagrama
+
+![hexagonal-architecture-diagram](./assets/.attachments/hexagonal-architecture-2024.png)
+
+## GraphQL
+
+### Customer
+
+    mutation {
+      createCustomer(input: {name: "joe", cpf: "123.332.229-87", email: "joe@email.com"}) {
+        id
+      }
+    }
+  
+    query {
+      customerOfId(id: "14641f16-4cce-4e56-9bb0-a55873ef3a79") {
+        name
+      }
+    }
+
+- http://localhost:8080/graphiql?path=/graphql

@@ -1,4 +1,4 @@
-package br.com.pdi.hexagonal.infrastructure;
+package br.com.pdi.hexagonal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
