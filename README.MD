@@ -3,7 +3,6 @@
 
 “Allow an application to be equally be driven by users, programs, automated, tests, batch scripts, and to be developed and tested in isolation from its eventual run-time devices and database” (Alistair Cockburn, 2005).
 
-
 ### Vantagens da Arquitetura Hexagonal:
 - Independência de Tecnologias: Permite trocar frameworks e ferramentas sem impactar a lógica central.
 - Facilidade de Testes: Facilita a criação de testes unitários e de integração devido à separação clara entre 
@@ -45,6 +44,8 @@ inexperientes.
 
 ## GraphQL
 
+- http://localhost:8080/graphiql?path=/graphql
+
 ### Customer
 
     mutation {
@@ -54,9 +55,37 @@ inexperientes.
     }
   
     query {
-      customerOfId(id: "14641f16-4cce-4e56-9bb0-a55873ef3a79") {
+      customer: customerOfId(id: "14641f16-4cce-4e56-9bb0-a55873ef3a79") {
         name
       }
     }
 
-- http://localhost:8080/graphiql?path=/graphql
+### Partner
+
+    mutation {
+      createPartner(input: {name: "Johnny", cnpj: "12.231.123/0001-11", email: "johnny@email.com"}) {
+        id
+      }
+    }
+
+    query {
+      partner: partnerOfId(id: "24721be4-eab2-4878-b9bb-ef6cb522b230") {
+        id
+      }
+    }
+
+### Event
+
+    mutation {
+      createEvent(input: {name: "Disney 2.0", date: "2025-01-01", totalSpots: 1, partnerId:"24721be4-eab2-4878-b9bb-ef6cb522b230"}) {
+        id
+      }
+    }
+
+### Subscribe Customer to Event
+
+    mutation {
+      subscribeCustomerToEvent(input: {customerId: "14641f16-4cce-4e56-9bb0-a55873ef3a79", eventId: "e9a8b96e-0137-4715-a896-c352cdd2e17e"}) {
+        eventId
+      }
+    }
