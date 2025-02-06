@@ -1,32 +1,30 @@
 
 # Hexagonal Architecture
 
-“Allow an application to be equally be driven by users, programs, automated, tests, batch scripts, and to be developed and tested in isolation from its eventual run-time devices and database” (Alistair Cockburn, 2005).
+“Permitir que uma aplicação seja igualmente conduzida por usuários, programas, testes automatizados, scripts em lote e que possa ser desenvolvida e testada isoladamente de seus dispositivos de execução e banco de dados finais.” (Alistair Cockburn, 2005).
 
-### Vantagens da Arquitetura Hexagonal:
-- Independência de Tecnologias: Permite trocar frameworks e ferramentas sem impactar a lógica central.
-- Facilidade de Testes: Facilita a criação de testes unitários e de integração devido à separação clara entre 
-  domínios e dependências externas.
-- Manutenibilidade: Código mais organizado e modular, reduzindo o acoplamento.
-- Flexibilidade: Adaptável a mudanças de requisitos, já que os adaptadores externos podem ser facilmente substituídos.
-- Escalabilidade: Suporte a múltiplos tipos de interface (APIs, CLI, etc.) sem modificar o núcleo da aplicação.
+### 👍 Vantagens da Arquitetura Hexagonal:
+- Desacoplamento da lógica de negócios
+- Facilidade de testes
+- Flexibilidade e Extensibilidade
+- Manutenção e Evolução
+- Organização do código
 
-### Desvantagens da Arquitetura Hexagonal:
-- Complexidade Inicial: Exige mais esforço para entender e implementar corretamente, especialmente para equipes 
-inexperientes.
-- Sobrecarga de Abstrações: Pode introduzir camadas desnecessárias, tornando o desenvolvimento mais lento em projetos 
-  pequenos.
-- Maior Tempo de Desenvolvimento: Requer mais planejamento e design para separar responsabilidades adequadamente.
-- Overengineering: Não é ideal para aplicações simples ou com ciclo de vida curto.
+### 👎 Desvantagens da Arquitetura Hexagonal:
+- Curva de Aprendizado
+- Maior complexidade inicial
+- Mais código boilerplate
+- Dificuldade na integração com frameworks tradicionais
 
-### Quando usar?
+
+### ✅ Quando usar?
 - Projetos de médio a grande porte, onde a manutenção, escalabilidade e testabilidade são cruciais.
 - Sistemas que precisam ser resilientes a mudanças de tecnologias externas (ex.: mudança de banco de dados ou API 
   externa).
 - Projetos onde o foco no domínio e na lógica de negócio é primordial.
 - Cenários onde a testabilidade é um requisito essencial.
 
-### Quando evitar?
+### ❌ Quando evitar?
 - Projetos pequenos ou simples, onde o overhead inicial não compensa os benefícios.
 - Times com pouca experiência em arquitetura hexagonal ou sem tempo para treinamento adequado.
 
